@@ -19,27 +19,27 @@ function Login({ setToken }) {
   }
 
   return (
-    <div>        
-      <div  className="container text-center">
-            {error && <div className="alert alert-danger">{error}</div>}
-            <form onSubmit={handleSubmit}>
-                <input
-                type="text"
-                name="username"
-                className="form-control mb-3"
-                placeholder="username"
-                />
-                <input
-                type="password"
-                name="password"
-                className="form-control mb-3"
-                placeholder="password"
-                />
-                <button type="submit" className="btn btn-success">
-                Login
-                </button>
-            </form>
-        </div>
+    <div className="p-3">
+      <div className="container text-center p-5">
+        {error && <div className="alert alert-danger">{error}</div>}
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="username"
+            className="form-control mb-3"
+            placeholder="username"
+          />
+          <input
+            type="password"
+            name="password"
+            className="form-control mb-3"
+            placeholder="password"
+          />
+          <button type="submit" className="btn btn-danger">
+            Login
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
