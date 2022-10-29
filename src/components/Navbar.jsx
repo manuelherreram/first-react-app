@@ -5,7 +5,7 @@ import UserCircleIcon from './assets/icons/user.png';
 function NavBar({onLogoClick, onProfileClick}) {
   
     return (
-      <nav className="d-flex navbar bg-light">
+      <nav className="navbar bg-light">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
             <span className="navbar-brand mb-0 h1"><img className="icon" src={ThunderIcon} alt="" /> Three pics</span>
