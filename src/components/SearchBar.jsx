@@ -1,15 +1,17 @@
-function SearchBar() {
+function SearchBar({ search, doSearch }) {
   return (
-    <div>
-      <form className="form-inline p-3">
-        <input
-          className="form-control"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-        />
-      </form>
+    <div className="d-flex p-3">
+      <input
+        value={search}
+        onChange={(event) => {
+          doSearch(event.target.value);
+        }}
+        className="form-control mb-3"
+        type="search"
+        placeholder="Buscar"
+      />
     </div>
   );
 }
+
 export default SearchBar;

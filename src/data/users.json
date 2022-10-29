@@ -1,0 +1,9 @@
+{
+    "users":[
+        {
+            "avatar": "https://res.cloudinary.com/dvjb4do4c/image/upload/v1630966863/three-points/l6kup7szwlrystejlc7w.jpg",
+            "username": "John",
+            "bio": "Hello World"
+        }
+    ]
+}

@@ -1,43 +1,38 @@
+import { useState,useEffect } from "react";
+import { getPosts } from "../service/data-service";
 import Post from "./Post";
 
-const posts = [
-  {
-    id: 1,
-    img: "https://via.placeholder.com/150",
-    title: "Episode 1",
-    description: "Episode 1 description",
-  },
-  {
-    id: 2,
-    img: "https://via.placeholder.com/150",
-    title: "Episode 2",
-    description: "Episode 2 description",
-  },
-  {
-    id: 3,
-    img: "https://via.placeholder.com/150",
-    title: "Episode 3",
-    description: "Episode 3 description",
-  },
-  {
-    id: 4,
-    img: "https://via.placeholder.com/150",
-    title: "Episode 4",
-    description: "Episode 4 description",
-  },
-];
+const initialState = [];
 
-function PostList() {
-  const postsComponents = posts.map((post) => (
-    <Post
-      key={post.id}
-      img={post.img}
-      title={post.title}
-      description={post.description}
-    />
-  ));
-
-  return <div className="d-flex flex-rows flex-wrap justify-content-center">{postsComponents}</div>;
+function PostList({searchI}) {
+    const [posts, setPosts] = useState(initialState);
+    
+    useEffect(() =>{
+        getPosts().then((posts) =>{
+            setPosts(posts);
+        });
+    }, []);    
+   
+    return (
+        <div className="p-1 d-flex flex-wrap justify-content-center">
+        {posts === initialState 
+        ? "Loading..." 
+        : posts
+            .filter((e) => e.text.includes(searchI))
+            .map((post, i) => (
+                <Post
+                    key={i}
+                    id={post.id}
+                    image={post.image}
+                    author={post.author.username}
+                    text={post.text}
+                    updatedAt = {post.updatedAt}
+                    likes={post.likes}
+                    comments={post.comments.length}
+                />
+            ))}
+        </div>
+    );
 }
 
 export default PostList;
